@@ -56,6 +56,11 @@ inherited frmViewClima: TfrmViewClima
         Column = 0
         Control = Edit2
         Row = 2
+      end
+      item
+        Column = 1
+        Control = Button4
+        Row = 2
       end>
     RowCollection = <
       item
@@ -156,6 +161,18 @@ inherited frmViewClima: TfrmViewClima
       Anchors = []
       TabOrder = 6
       ExplicitLeft = 0
+    end
+    object Button4: TButton
+      Left = 487
+      Top = 379
+      Width = 75
+      Height = 25
+      Anchors = []
+      Caption = 'Button4'
+      TabOrder = 7
+      OnClick = Button4Click
+      ExplicitLeft = 759
+      ExplicitTop = 377
     end
   end
   object RESTClient1: TRESTClient

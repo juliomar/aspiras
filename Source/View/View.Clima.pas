@@ -3,12 +3,34 @@ unit View.Clima;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, View.Base, Vcl.ExtCtrls, REST.Types,
-  Vcl.StdCtrls, REST.Client, Data.Bind.Components, Data.Bind.ObjectScope,
-  Data.DB, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
-  FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
-  FireDAC.Comp.DataSet, FireDAC.Comp.Client, REST.Response.Adapter, Vcl.Grids,
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  View.Base,
+  Vcl.ExtCtrls,
+  REST.Types,
+  Vcl.StdCtrls,
+  REST.Client,
+  Data.Bind.Components,
+  Data.Bind.ObjectScope,
+  Data.DB,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option,
+  FireDAC.Stan.Param,
+  FireDAC.Stan.Error,
+  FireDAC.DatS,
+  FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf,
+  FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client,
+  REST.Response.Adapter,
+  Vcl.Grids,
   Vcl.DBGrids;
 
 type
@@ -34,13 +56,15 @@ type
     Button3: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
+    Button4: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
-    { Private declarations }
+      { Private declarations }
   public
-    { Public declarations }
+      { Public declarations }
   end;
 
 var
@@ -49,6 +73,9 @@ var
 implementation
 
 {$R *.dfm}
+
+uses
+  Previsao.Model.Tempo;
 
 procedure TfrmViewClima.Button1Click(Sender: TObject);
 begin
@@ -78,9 +105,25 @@ procedure TfrmViewClima.Button3Click(Sender: TObject);
 begin
   DataSource1.DataSet := FDMemTable2;
 
-  RESTClient3.BaseURL := format('http://viacep.com.br/ws/%s/json',[Edit1.Text]);
+  RESTClient3.BaseURL := format('http://viacep.com.br/ws/%s/json', [ Edit1.Text ]);
 
   RESTRequest3.Execute;
+end;
+
+procedure TfrmViewClima.Button4Click(Sender: TObject);
+var
+  LPrevisao: TPrevisaoTempo;
+begin
+  LPrevisao := TPrevisaoTempo.Create;
+  try
+    LPrevisao.Token    := '97a8f41ef0d91a0b843d52c210ece558';
+    LPrevisao.CodeCity := LPrevisao.FindCityID('Sarandi', 'PR');
+    LPrevisao.ConsultaPrevisao;
+    ShowMessage(LPrevisao.Return.Temperature.ToString);
+  finally
+    LPrevisao.free;
+  end;
+
 end;
 
 end.

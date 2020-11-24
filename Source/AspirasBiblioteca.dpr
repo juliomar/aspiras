@@ -13,7 +13,11 @@ uses
   View.Cadastro.Editoras in 'View\View.Cadastro.Editoras.pas' {frmViewCadastroEditoras},
   View.Cadastro.Livros in 'View\View.Cadastro.Livros.pas' {frmViewCadastroLivros},
   View.Base in 'View\View.Base.pas' {frmViewBase},
-  View.Clima in 'View\View.Clima.pas' {frmViewClima};
+  View.Clima in 'View\View.Clima.pas' {frmViewClima},
+  Previsao.Model.Entidade in 'Model\Clima\Previsao.Model.Entidade.pas',
+  Previsao.Model.Interfaces in 'Model\Clima\Previsao.Model.Interfaces.pas',
+  Previsao.Model.Data in 'Model\Clima\Previsao.Model.Data.pas' {ModelData: TDataModule},
+  Previsao.Model.Tempo in 'Model\Clima\Previsao.Model.Tempo.pas';
 
 {$R *.res}
 
@@ -24,5 +28,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.Title := 'Biblioteca Aspiras';
   Application.CreateForm(TfrmViewPrincipal, frmViewPrincipal);
+  Application.CreateForm(TModelData, ModelData);
   Application.Run;
 end.
