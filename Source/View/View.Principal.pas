@@ -52,8 +52,12 @@ type
     ImageList1: TImageList;
     Image1: TImage;
     Label1: TLabel;
+    actClima: TAction;
+    ToolButton9: TToolButton;
+    ToolButton10: TToolButton;
     procedure actAlunosExecute(Sender: TObject);
     procedure actBibliotecaExecute(Sender: TObject);
+    procedure actClimaExecute(Sender: TObject);
     procedure actEditorasExecute(Sender: TObject);
     procedure actFecharExecute(Sender: TObject);
     procedure actLivrosExecute(Sender: TObject);
@@ -75,7 +79,7 @@ uses
   Model.Conexao.Factory,
   FireDAC.Comp.Client,
   FireDAC.DApt, View.Cadastro.Biblioteca, View.Cadastro.Alunos,
-  View.Cadastro.Editoras, View.Cadastro.Livros;
+  View.Cadastro.Editoras, View.Cadastro.Livros, View.Clima;
 
 procedure TfrmViewPrincipal.actAlunosExecute(Sender: TObject);
 begin
@@ -89,6 +93,16 @@ begin
   if not assigned(frmViewCadastroBibliotecas) then
     frmViewCadastroBibliotecas := TfrmViewCadastroBibliotecas.Create(Self);
   frmViewCadastroBibliotecas.Show;
+end;
+
+procedure TfrmViewPrincipal.actClimaExecute(Sender: TObject);
+begin
+  frmViewClima := TfrmViewClima.Create(Application);
+  try
+    frmViewClima.ShowModal;
+  finally
+    frmViewClima.Free;
+  end;
 end;
 
 procedure TfrmViewPrincipal.actEditorasExecute(Sender: TObject);

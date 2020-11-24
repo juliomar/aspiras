@@ -11,7 +11,9 @@ uses
   View.Cadastro.Biblioteca in 'View\View.Cadastro.Biblioteca.pas' {frmViewCadastroBibliotecas},
   View.Cadastro.Alunos in 'View\View.Cadastro.Alunos.pas' {frmViewCadastroAlunos},
   View.Cadastro.Editoras in 'View\View.Cadastro.Editoras.pas' {frmViewCadastroEditoras},
-  View.Cadastro.Livros in 'View\View.Cadastro.Livros.pas' {frmViewCadastroLivros};
+  View.Cadastro.Livros in 'View\View.Cadastro.Livros.pas' {frmViewCadastroLivros},
+  View.Base in 'View\View.Base.pas' {frmViewBase},
+  View.Clima in 'View\View.Clima.pas' {frmViewClima};
 
 {$R *.res}
 
@@ -19,9 +21,7 @@ begin
   Application.Initialize;
 
   TfrmViewSplash.ExibirSplash;
-
   Application.MainFormOnTaskbar := True;
-
   Application.Title := 'Biblioteca Aspiras';
   Application.CreateForm(TfrmViewPrincipal, frmViewPrincipal);
   Application.Run;

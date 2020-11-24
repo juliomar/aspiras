@@ -1383,6 +1383,19 @@ object frmViewPrincipal: TfrmViewPrincipal
         Top = 0
         Action = actFechar
       end
+      object ToolButton10: TToolButton
+        Left = 418
+        Top = 0
+        Width = 67
+        Caption = 'ToolButton10'
+        ImageIndex = 2
+        Style = tbsSeparator
+      end
+      object ToolButton9: TToolButton
+        Left = 485
+        Top = 0
+        Action = actClima
+      end
     end
   end
   object ActionList1: TActionList
@@ -1417,6 +1430,10 @@ object frmViewPrincipal: TfrmViewPrincipal
       Caption = 'Fechar'
       ImageIndex = 0
       OnExecute = actFecharExecute
+    end
+    object actClima: TAction
+      Caption = 'Clima'
+      OnExecute = actClimaExecute
     end
   end
   object ImageList1: TImageList
