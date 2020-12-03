@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="D:\Programas\aspiras\Teste Unitário 1\Win32\Debug\Project2.exe" total="3" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2020-12-03" time="0.009">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="Project2.exe" executed="true" result="Success" success="True" time="0.009" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="Unit3" executed="true" result="Success" success="True" time="0.009" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="TTesTCalc" executed="True" result="Success" success="True" time="0.009" >
+                <results>
+                  <test-case name="TestAdd.TesteA" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestSub.TesteSub" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="TestSub.TesteNovo" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>
